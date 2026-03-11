@@ -36,8 +36,6 @@ export default function ChatPage() {
       fontFamily: "sans-serif",
       margin: 0
     }}>
-
-      {/* Header */}
       <div style={{
         padding: "16px 20px",
         background: "#161616",
@@ -49,7 +47,6 @@ export default function ChatPage() {
         💬 WaiLTH Finance Assistant
       </div>
 
-      {/* Messages */}
       <div style={{
         flex: 1,
         overflowY: "auto",
@@ -73,10 +70,8 @@ export default function ChatPage() {
         )}
         {messages.map((m, i) => (
           <div key={i} style={{
-            alignSelf: m.role === "user"
-              ? "flex-end" : "flex-start",
-            background: m.role === "user"
-              ? "#4f46e5" : "#1e1e1e",
+            alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+            background: m.role === "user" ? "#4f46e5" : "#1e1e1e",
             color: "#fff",
             borderRadius: 12,
             padding: "10px 14px",
@@ -94,7 +89,6 @@ export default function ChatPage() {
         )}
       </div>
 
-      {/* Input */}
       <div style={{
         display: "flex",
         padding: 12,
@@ -118,70 +112,17 @@ export default function ChatPage() {
             outline: "none"
           }}
         />
-        <button
-          onClick={sendMessage}
-          style={{
-            background: "#4f46e5",
-            color: "#fff",
-            border: "none",
-            borderRadius: 10,
-            padding: "0 16px",
-            cursor: "pointer",
-            fontWeight: 700,
-            fontSize: 18
-          }}
-        >↑</button>
+        <button onClick={sendMessage} style={{
+          background: "#4f46e5",
+          color: "#fff",
+          border: "none",
+          borderRadius: 10,
+          padding: "0 16px",
+          cursor: "pointer",
+          fontWeight: 700,
+          fontSize: 18
+        }}>↑</button>
       </div>
-
     </div>
   )
 }
-```
-
-Click **"Commit changes"** → **Commit**
-
----
-
-## 🟢 PHASE 4 — Deploy on Vercel (5 mins)
-
-**1.** Go to **vercel.com** → Sign up with GitHub
-
-**2.** Click **"Add New Project"**
-
-**3.** Find your `wailth-chat` repo → Click **"Import"**
-
-**4.** Leave all settings default → Click **"Deploy"**
-
-**5.** Wait ~2 minutes for it to build
-
-**6.** Once done, go to **Settings → Environment Variables**
-
-**7.** Click **"Add New"**
-- **Name:** `OPENROUTER_API_KEY`
-- **Value:** paste your key from Phase 2
-- Click **Save**
-
-**8.** Go to **Deployments** → Click **"Redeploy"**
-
-**9.** Once done, copy your live URL:
-```
-https://wailth-chat.vercel.app
-```
-
-**10.** Test it by visiting:
-```
-https://wailth-chat.vercel.app/chat
-```
-You should see your chatbot! ✅
-
----
-
-## 🔴 PHASE 5 — Embed in Framer (2 mins)
-
-**1.** Open **WaiLTH project** in Framer
-
-**2.** Press **"+"** top left → search **"Embed"** → drag onto page
-
-**3.** In right panel under **"URL"** paste:
-```
-https://wailth-chat.vercel.app/chat
